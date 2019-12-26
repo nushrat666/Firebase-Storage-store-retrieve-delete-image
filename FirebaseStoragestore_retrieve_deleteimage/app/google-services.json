@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1051026211896",
+    "firebase_url": "https://fir-storage-storeretrieved.firebaseio.com",
+    "project_id": "fir-storage-storeretrieved",
+    "storage_bucket": "fir-storage-storeretrieved.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1051026211896:android:2891cecae0d4ef9c7412cd",
+        "android_client_info": {
+          "package_name": "me.mehadih.firebasestorage_store_retrieve_deleteimage"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1051026211896-mql91au21o4eaodvpco2udn18oclhj5v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "me.mehadih.firebasestorage_store_retrieve_deleteimage",
+            "certificate_hash": "02ea3d0b26e997af0d1b07dfde9a2c189ebecaa7"
+          }
+        },
+        {
+          "client_id": "1051026211896-ka6o7mhnocq012kgrnn6cqtkt4136p19.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcqjjXB7omTuH8ivZdBG5l09sDPPCvBZo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1051026211896-ka6o7mhnocq012kgrnn6cqtkt4136p19.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
