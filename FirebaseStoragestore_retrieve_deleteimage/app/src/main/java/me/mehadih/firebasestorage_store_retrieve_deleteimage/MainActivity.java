@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -72,17 +73,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 openfileChooser();
                 break;
             case R.id.SaveImageButton:
-                if(uploadTask!=null && uploadTask.isInProgress())
-                {
+                if (uploadTask != null && uploadTask.isInProgress()) {
                     Toast.makeText(getApplicationContext(), "Uploading in progress", Toast.LENGTH_LONG).show();
-                }else{
+                } else {
                     saveData();
                 }
 
                 break;
             case R.id.DisplayImageButton:
 
-                Intent intent =new Intent(MainActivity.this,ImageActivity.class);
+                Intent intent = new Intent(MainActivity.this, ImageActivity.class);
                 startActivity(intent);
                 break;
         }
@@ -108,10 +108,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                         Toast.makeText(getApplicationContext(), "Image is stored sucessfully", Toast.LENGTH_LONG).show();
-                    Upload upload =new Upload(imageName,taskSnapshot.getStorage().getDownloadUrl().toString());
 
-                    String uploadId =databaseReference.push().getKey();
-                    databaseReference.child(uploadId).setValue(upload);
+                        Task<Uri> uriTask =taskSnapshot.getStorage().getDownloadUrl();
+                        while(!uriTask.isSuccessful());
+                        Uri downloadUrl=uriTask.getResult();
+
+                        Upload upload = new Upload(imageName, downloadUrl.toString());
+
+                        String uploadId = databaseReference.push().getKey();
+                        databaseReference.child(uploadId).setValue(upload);
 
                     }
                 })
