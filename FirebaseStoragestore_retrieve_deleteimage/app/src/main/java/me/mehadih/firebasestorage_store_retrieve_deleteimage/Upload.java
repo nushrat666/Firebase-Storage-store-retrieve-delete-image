@@ -1,10 +1,22 @@
 package me.mehadih.firebasestorage_store_retrieve_deleteimage;
 
 
+import com.google.firebase.database.Exclude;
+
 public class Upload {
 
     private  String imageName;
     private  String imageUrl;
+
+    private String key;
+@Exclude
+    public String getKey() {
+        return key;
+    }
+    @Exclude
+    public void setKey(String key) {
+        this.key = key;
+    }
 
     public Upload(){
 
